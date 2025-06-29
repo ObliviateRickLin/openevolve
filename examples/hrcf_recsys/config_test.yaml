@@ -1,0 +1,62 @@
+# Test Configuration for HRCF Recommendation System Example
+# Optimized to reduce diversity calculation overhead
+
+# File paths
+initial_program: "openevolve/examples/hrcf_recsys/initial_program.py"
+evaluation_file: "openevolve/examples/hrcf_recsys/evaluator.py"
+
+# General settings
+max_iterations: 15  # Reduced for testing
+checkpoint_interval: 15  # Less frequent checkpoints to reduce diversity calculations
+log_level: "INFO"
+
+# LLM configuration
+llm:
+  primary_model: "deepseek-chat"
+  primary_model_weight: 0.7
+  secondary_model: "deepseek-chat"
+  secondary_model_weight: 0.3
+  api_key: "sk-aa2603173c614748be8f4d43a10bc179"
+  api_base: "https://api.deepseek.com"
+  temperature: 0.6
+  top_p: 0.95
+  max_tokens: 8190
+  timeout: 90
+
+# Prompt configuration
+prompt:
+  system_message: "You are an expert in recommendation systems and hyperbolic geometry. Your task is to improve the HRCF algorithm. Focus on small, targeted improvements to the loss functions or geometric regularization. Make minimal but effective changes."
+  num_top_programs: 3  # Reduced
+  num_diverse_programs: 2  # Reduced
+  use_template_stochasticity: true
+
+# Database configuration - Smaller for testing
+database:
+  population_size: 20  # Much smaller
+  archive_size: 10     # Much smaller
+  num_islands: 2       # Fewer islands
+  
+  # Selection parameters
+  elite_selection_ratio: 0.15
+  exploitation_ratio: 0.7
+  
+  # Feature map for MAP-Elites
+  feature_dimensions:
+    - "recall_at_10"
+    - "combined_score"
+  feature_bins: 6  # Fewer bins
+
+# Evaluator configuration
+evaluator:
+  timeout: 300
+  max_retries: 2
+  parallel_evaluations: 1  # Single threaded for easier debugging
+  
+  cascade_evaluation: true
+  cascade_thresholds: [0.01, 0.05]
+  use_llm_feedback: false
+
+# Evolution settings
+diff_based_evolution: true
+allow_full_rewrites: false
+max_code_length: 50000 

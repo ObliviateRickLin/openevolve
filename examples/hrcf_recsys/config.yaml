@@ -1,0 +1,66 @@
+# Configuration for HRCF Recommendation System Example
+# This config optimizes for recommendation quality using hyperbolic embeddings
+
+# File paths (corrected spelling)
+initial_program: "openevolve/examples/hrcf_recsys/initial_program.py"
+evaluation_file: "openevolve/examples/hrcf_recsys/evaluator.py"
+
+# General settings
+max_iterations: 500
+checkpoint_interval: 10
+log_level: "INFO"
+
+# LLM configuration - Using latest Google Gemini Flash models
+llm:
+  primary_model: "deepseek-chat"
+  primary_model_weight: 0.7
+  secondary_model: "deepseek-chat"
+  secondary_model_weight: 0.3
+  # Add your Google API key here
+  api_key: "sk-aa2603173c614748be8f4d43a10bc179"  # Set your GOOGLE_API_KEY environment variable
+  api_base: "https://api.deepseek.com"
+  temperature: 0.6
+  top_p: 0.95
+  max_tokens: 8190
+  timeout: 90
+
+# Prompt configuration
+prompt:
+  system_message: "You are an expert having 10 years experiences in recommendation systems and hyperbolic geometry. Your task is to improve the HRCF (Hyperbolic Regularized Collaborative Filtering) algorithm. Focus on optimizing the loss functions, geometric regularization techniques, and hyperbolic space operations to enhance recommendation quality and convergence speed. Pay special attention to the hyperbolic manifold operations, FermiDirac decoder, and geometric regularization terms. You should make your idea not too complex, leveraging the inherent properties of hyperbolic space to improve performance. You are tirelessly driving the creation of a world-class architecture."
+  num_top_programs: 4
+  num_diverse_programs: 3
+  use_template_stochasticity: true
+
+# Database configuration - Optimized for recommendation system evolution
+database:
+  population_size: 60  # Start smaller for faster iteration
+  archive_size: 30
+  num_islands: 4
+  
+  # Selection parameters tuned for algorithm optimization
+  elite_selection_ratio: 0.15
+  exploitation_ratio: 0.7
+  
+  # Feature map for MAP-Elites (recommendation-specific metrics)
+  feature_dimensions:
+    - "recall_at_10"           # Primary recommendation metric
+    - "combined_score"         # Overall performance
+  feature_bins: 8
+
+# Evaluator configuration - Tuned for HRCF evaluation
+evaluator:
+  timeout: 600  # 10 minutes per evaluation
+  max_retries: 2
+  parallel_evaluations: 2   # Limit parallel runs to avoid GPU memory issues
+  
+  # Dataset configuration - handled by evaluator.py
+  
+  # Enable cascade evaluation to support EvaluationResult return type
+  cascade_evaluation: true
+  cascade_thresholds: [0.01, 0.05]  # Low thresholds since we don't really filter
+  use_llm_feedback: false
+
+# Evolution settings - Optimized for code evolution  
+diff_based_evolution: true
+allow_full_rewrites: false
+max_code_length: 50000  # Allow larger evolved programs for complex algorithms
