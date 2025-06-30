@@ -1,0 +1,28 @@
+2025-06-28 19:03:36,440 - openevolve.controller - INFO - Logging to examples/hrcf_recsys/openevolve_output/logs/openevolve_20250628_190336.log
+2025-06-28 19:03:36,440 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-06-28 19:03:36,520 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: gpt-4o
+2025-06-28 19:03:36,527 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: gpt-4.1
+2025-06-28 19:03:36,527 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gpt-4o (weight: 0.90), gpt-4.1 (weight: 0.10)
+2025-06-28 19:03:36,533 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: gpt-4o
+2025-06-28 19:03:36,539 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: gpt-4.1
+2025-06-28 19:03:36,539 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: gpt-4o (weight: 0.90), gpt-4.1 (weight: 0.10)
+2025-06-28 19:03:36,539 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-06-28 19:03:36,539 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-06-28 19:03:36,539 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-06-28 19:03:36,539 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-06-28 19:03:44,273 - openevolve.evaluator - INFO - Successfully loaded evaluation function from examples/hrcf_recsys/evaluator.py
+2025-06-28 19:03:44,273 - openevolve.evaluator - INFO - Initialized evaluator with examples/hrcf_recsys/evaluator.py
+2025-06-28 19:03:44,273 - openevolve.controller - INFO - Initialized OpenEvolve with examples/hrcf_recsys/initial_program.py and examples/hrcf_recsys/evaluator.py
+2025-06-28 19:03:44,273 - openevolve.controller - INFO - Adding initial program to database
+2025-06-28 19:13:44,378 - openevolve.evaluator - WARNING - Stage 1 evaluation timed out after 600s
+2025-06-28 19:13:44,389 - openevolve.evaluator - INFO - Evaluated program 9b975643-e43d-4ce5-b80f-5d7829d0ca30 in 600.12s: stage1_passed=0.0000, error=0.0000, timeout=1.0000
+2025-06-28 19:13:44,390 - openevolve.controller - INFO - Starting evolution from iteration 0 for 500 iterations (total: 500)
+2025-06-28 19:13:44,390 - openevolve.controller - INFO - Using island-based evolution with 4 islands
+2025-06-28 19:13:44,390 - openevolve.database - INFO - Island Status:
+2025-06-28 19:13:44,390 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.3333, avg=0.3333, diversity=0.00, gen=0
+2025-06-28 19:13:44,390 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2025-06-28 19:13:44,390 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2025-06-28 19:13:44,391 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2025-06-28 19:13:44,391 - openevolve.llm.ensemble - INFO - Sampled model: gpt-4o
+2025-06-28 19:13:45,577 - openevolve.llm.openai - WARNING - Error on attempt 1/4: cannot import name 'UploadPart' from 'openai.types.uploads.upload_part' (/u/home/r/ricklin/.local/lib/python3.10/site-packages/openai/types/uploads/upload_part.py). Retrying...
+2025-06-28 19:14:00,554 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"

@@ -38,8 +38,8 @@ ENV/
 
 # Output files
 examples/*/output/
-openevolve_output*/
-*.log
+# openevolve_output*/  # Commented out to allow hrcf_recsys results
+# *.log  # Commented out to allow evolution logs
 
 # Test cache
 .pytest_cache/
