@@ -10,18 +10,17 @@ max_iterations: 500
 checkpoint_interval: 10
 log_level: "INFO"
 
-# LLM configuration - Using latest Google Gemini Flash models
+# LLM configuration - Using latest OpenAI models
 llm:
-  primary_model: "deepseek-chat"
-  primary_model_weight: 0.7
-  secondary_model: "deepseek-chat"
-  secondary_model_weight: 0.3
-  # Add your Google API key here
-  api_key: "sk-aa2603173c614748be8f4d43a10bc179"  # Set your GOOGLE_API_KEY environment variable
-  api_base: "https://api.deepseek.com"
-  temperature: 0.6
+  primary_model: "gpt-4o"
+  primary_model_weight: 0.9
+  secondary_model: "gpt-4.1"
+  secondary_model_weight: 0.1
+  # Add your OpenAI API key here  
+  api_key: "YOUR_OPENAI_API_KEY_HERE"  # Set your OPENAI_API_KEY environment variable
+  api_base: "https://api.openai.com/v1"
+  temperature: 0.7
   top_p: 0.95
-  max_tokens: 8190
   timeout: 90
 
 # Prompt configuration
